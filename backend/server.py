@@ -102,14 +102,17 @@ def getAns():
     directory_path = "./data"
     text_files = [os.path.join(directory_path, file) for file in os.listdir(directory_path) if file.endswith('.txt')]
     combined_text = get_text_from_files(text_files)
+    print("DVFGDFGEGFDGDFSG>>>>>>>>>>>>>>"+combined_text)
     query = request.json.get("query")
+    text_chunks = get_text_chunks(combined_text)
+    print(text_chunks)
+    get_vector_store(text_chunks)
     if query:
         text=user_input(query)
         print(text)
         return jsonify({'message':text}),200
     print(query)
-    text_chunks = get_text_chunks(combined_text)
-    get_vector_store(text_chunks)
+
     return jsonify({'message': 'Content appended successfully.'}),200
 
 
