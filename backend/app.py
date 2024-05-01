@@ -71,6 +71,10 @@ def user_input(user_question):
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return 'Hello, World!'
+
 @app.route('/api/append',methods=['POST'])
 def append_to_file():
     company = request.json.get('company')
