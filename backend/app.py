@@ -8,7 +8,9 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 from langchain_community.output_parsers.rail_parser import GuardrailsOutputParser
 from dotenv import load_dotenv
+from flask_cors import CORS
 import os
+
 
 load_dotenv()
 os.getenv("GOOGLE_API_KEY")
@@ -70,7 +72,7 @@ def user_input(user_question):
 
 
 app = Flask(__name__)
-
+CORS(app) 
 @app.route('/')
 def index():
     return 'Hello, World!'
