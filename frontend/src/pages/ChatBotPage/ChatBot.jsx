@@ -9,7 +9,7 @@ const ChatBot = () => {
   }
   const handleQuery=async (e)=>{
     e.preventDefault();
-    await axios.post("/api/getAns",{query})
+    await axios.post("https://ask-your-senior.onrender.com/api/getAns",{query})
     .then(res=>setResponse(res.data.message))
     .catch(error=>console.log(error))
   }

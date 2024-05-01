@@ -50,7 +50,7 @@ const DataCollectionPage = ()=>{
   }
   const handleSubmit = async (e)=>{
     e.preventDefault();
-    await axios.post("/api/append",{company,rounds,description,others})
+    await axios.post("https://ask-your-senior.onrender.com/api/append",{company,rounds,description,others})
           .then(res=>console.log(res))
           .catch(error=>console.log(error))
     navigate('/thankyou');
