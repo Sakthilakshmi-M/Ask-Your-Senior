@@ -75,7 +75,10 @@ app = Flask(__name__)
 CORS(app) 
 @app.route('/')
 def index():
-    return 'Hello, World!'
+    directory_path = "./data"
+    text_files = [os.path.join(directory_path, file) for file in os.listdir(directory_path) if file.endswith('.txt')]
+    combined_text = get_text_from_files(text_files)
+    return "combined_text"
 
 @app.route('/api/append',methods=['POST'])
 def append_to_file():
@@ -100,7 +103,6 @@ def append_to_file():
                 file.write("For Round "+str(i+1)+" the preparation strategies are: "+description[i]['inputField3']+"\n")
             file.write(others)
             file.write("\n")
-        print(os.getcwd())
         return jsonify({'message': 'Content appended successfully.'}),200
     except Exception as e:
         return jsonify({'error':str(e)}),500
