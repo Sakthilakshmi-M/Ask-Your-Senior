@@ -78,7 +78,8 @@ def index():
     directory_path = "./data"
     text_files = [os.path.join(directory_path, file) for file in os.listdir(directory_path) if file.endswith('.txt')]
     combined_text = get_text_from_files(text_files)
-    return "combined_text"
+    print(combined_text)
+    return combined_text
 
 @app.route('/api/append',methods=['POST'])
 def append_to_file():
