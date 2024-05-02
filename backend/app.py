@@ -87,7 +87,7 @@ def append_to_file():
     if not company or not rounds:
         return jsonify({'error':'Content is required. '}),400
     print(company,rounds)
-    file_path = "backend/data/file.txt"
+    file_path = "data/file.txt"
     try:
         with open(file_path,'a') as file:
             file.write("\n")
