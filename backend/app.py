@@ -100,6 +100,7 @@ def append_to_file():
                 file.write("For Round "+str(i+1)+" the preparation strategies are: "+description[i]['inputField3']+"\n")
             file.write(others)
             file.write("\n")
+        print(os.getcwd())
         return jsonify({'message': 'Content appended successfully.'}),200
     except Exception as e:
         return jsonify({'error':str(e)}),500
